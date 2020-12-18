@@ -1,0 +1,28 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:insert="header"></div>
+<body>
+<div class="container">
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Titulo</th>
+        <th scope="col">Fecha de Creacion</th>
+        <th scope="col">imagen</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each= "post: ${listPost}">
+        <td th:text="${post.id}" />
+        <td th:text="${post.title}"/>
+        <td th:text="${post.creationDate}"/>
+        <td th:text="${post.image}"/>
+
+    </tr>
+    </tbody>
+</table>
+
+</div>
+
+</body>
+</html>
