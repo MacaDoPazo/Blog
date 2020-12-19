@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -24,9 +25,25 @@ public class PostController {
     public ModelAndView index()
     {
         List<PostEntity> postEntities = postService.listAllPosts();
-        System.out.println("hola post");
+       // System.out.println("hola post");
         ModelMap model = new ModelMap();
         model.put("listPost",postEntities);
         return new ModelAndView("index.html",model);
     }
+    @RequestMapping("search")
+    public ModelAndView searchPost(@RequestParam("title") String title)
+    {
+        try {
+            List<PostEntity> listPost = postService.findPost(title);
+        }
+        catch (Exception e)
+        {
+            ModelMap model = new ModelMap();
+            model.put("error",e.getMessage());
+            return new ModelAndView("redirect:/post");
+        }
+
+    }
+
+
 }

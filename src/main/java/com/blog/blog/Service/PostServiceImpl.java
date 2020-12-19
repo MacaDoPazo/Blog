@@ -30,4 +30,18 @@ public class PostServiceImpl implements PostService{
         });
         return ordList;
     }
+
+    @Override
+    public List<PostEntity> findPost(String place) throws Exception{
+           List<PostEntity> listPosts = postRepository.findByTitleContaining(place);
+           if(listPosts.isEmpty())
+           {
+               throw new Exception("El post no existe");
+           }
+           else {
+               return listPosts;
+           }
+    }
+
+
 }

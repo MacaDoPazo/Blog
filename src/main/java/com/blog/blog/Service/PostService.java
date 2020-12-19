@@ -7,4 +7,6 @@ import java.util.List;
 public interface PostService {
 
     List<PostEntity> listAllPosts();
+
+    List<PostEntity> findPost(String place) throws Exception;
 }
