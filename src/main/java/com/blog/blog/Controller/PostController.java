@@ -21,7 +21,7 @@ public class PostController {
     private PostService postService;
 
 
-    @RequestMapping("post")
+    @RequestMapping("home")
     public ModelAndView index()
     {
         List<PostEntity> postEntities = postService.listAllPosts();
