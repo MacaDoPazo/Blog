@@ -1,23 +1,14 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <div th:insert="header"></div>
 <head>
-    <title>Blog - inicio</title>
+    <title>Blog - busqueda</title>
 </head>
 <body>
 <div class="container-fluid">
-    <form class="d-flex py-2 px-2" action="/search" method="post">
-        <input class="form-control me-2 " name="search" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-warning " type="submit">Search</button>
-    </form>
-
+    <h2 class="text-center mx-2">Se ha encontrado el siguente post: </h2>
 </div>
-<div th:if="${error != null }"  class= "alert alert-secondary container-fluid" role="alert">
-<p th:utext="${error}"></p>
-</div>
-
-
 <div class="container-fluid mx-2 my-2">
-    <div class="table-responsive bg-light">
+     <div class="table-responsive bg-light">
         <table class="table">
             <thead>
             <tr>
