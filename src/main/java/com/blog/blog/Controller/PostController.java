@@ -35,6 +35,9 @@ public class PostController {
     {
         try {
             List<PostEntity> listPost = postService.findPost(title);
+            ModelMap model = new ModelMap();
+            model.put("listPost",listPost);
+            return new ModelAndView("search",model);
         }
         catch (Exception e)
         {
