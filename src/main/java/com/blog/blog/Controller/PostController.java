@@ -52,6 +52,26 @@ public class PostController {
         }
 
     }
+    @RequestMapping("newPost")
+    public ModelAndView newPost()
+    {
+        return new ModelAndView("newPost.html");
+    }
+    @RequestMapping("create")
+    public ModelAndView create(@RequestParam("title")String title,
+                               @RequestParam("content") String content)
+    // @RequestParam("file") MultipartFile file)
+    {
+        Calendar calendar = Calendar.getInstance();
+        Date date = calendar.getTime();
+        PostEntity post = new PostEntity();
+        post.setTitle(title);
+        post.setContent(content);
+        post.setCreationDate(date);
+        postService.updatePost(post);
+
+        return new ModelAndView("redirect:/home");
+    }
     @RequestMapping("modify")
     public ModelAndView modify(@RequestParam("idPost") Long idPost)
     {

@@ -13,4 +13,5 @@ public interface PostService {
     PostEntity findPostbyID(Long idPost);
     void updatePost(PostEntity post);
     void deletePost(Long idPost);
+
 }
