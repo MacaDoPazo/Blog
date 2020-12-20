@@ -12,4 +12,5 @@ public interface PostService {
     List<PostEntity> findPost(String place) throws Exception;
     PostEntity findPostbyID(Long idPost);
     void updatePost(PostEntity post);
+    void deletePost(Long idPost);
 }

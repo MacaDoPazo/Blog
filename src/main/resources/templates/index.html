@@ -7,7 +7,7 @@
 <div class="container-fluid">
     <form class="d-flex py-2 px-2" action="/search" method="post">
         <input class="form-control me-2 " name="search" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-warning " type="submit">Search</button>
+        <button class="btn btn-warning mx-2" type="submit">Search</button>
     </form>
 
 </div>
@@ -37,8 +37,8 @@
                 <td th:text="${post.creationDate}"/>
                 <td th:text="${post.category}"/>
                 <td th:text="${post.image}"/>
-                <td><a th:href="@{/modify(idPost=${post.id})}" class="btn btn-default">Modificar</a> </td>
-                <td><a th:href="@{/delete(idPost=${post.id})}" class="btn btn-default">Borrar</a> </td>
+                <td><a th:href="@{/modify(idPost=${post.id})}" class="btn btn-dark">Modificar</a> </td>
+                <td><a th:href="@{/delete(idPost=${post.id})}" class="btn btn-dark">Borrar</a> </td>
             </tr>
             </tbody>
         </table>

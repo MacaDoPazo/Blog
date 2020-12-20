@@ -75,6 +75,12 @@ public class PostController {
         postService.updatePost(post);
         return new ModelAndView("redirect:/home");
     }
+    @RequestMapping(value = "delete",method = RequestMethod.GET)
+    public ModelAndView delete(@RequestParam("idPost") Long idPost)
+    {
+        postService.deletePost(idPost);
+        return new ModelAndView("redirect:/home");
+    }
 
 
 }
