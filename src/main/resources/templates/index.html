@@ -26,6 +26,8 @@
                 <th scope="col">Fecha de Creacion</th>
                 <th scope="col">Categoria</th>
                 <th scope="col">imagen</th>
+                <th></th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
@@ -35,7 +37,8 @@
                 <td th:text="${post.creationDate}"/>
                 <td th:text="${post.category}"/>
                 <td th:text="${post.image}"/>
-
+                <td><a th:href="@{/modify(idPost=${post.id})}" class="btn btn-default">Modificar</a> </td>
+                <td><a th:href="@{/delete(idPost=${post.id})}" class="btn btn-default">Borrar</a> </td>
             </tr>
             </tbody>
         </table>

@@ -17,9 +17,10 @@ public class PostEntity {
     private String image;
     @Column(name="category")
     private String category;
-    @Column(name="creationDate")
+    @Column(name="creation_date")
     private Date creationDate;
-
+    @Column(name="content")
+    private String content;
     public Long getId() {
         return id;
     }
@@ -58,5 +59,13 @@ public class PostEntity {
 
     public void setCreationDate(Date creationDate) {
         this.creationDate = creationDate;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 }

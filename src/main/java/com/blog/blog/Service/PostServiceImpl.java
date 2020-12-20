@@ -6,9 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
+
 @Service
 @Transactional
 public class PostServiceImpl implements PostService{
@@ -41,6 +42,16 @@ public class PostServiceImpl implements PostService{
            else {
                return listPosts;
            }
+    }
+
+    @Override
+    public PostEntity findPostbyID(Long idPost) {
+        return postRepository.getOne(idPost);
+    }
+
+    @Override
+    public void updatePost(PostEntity post) {
+        postRepository.save(post);
     }
 
 

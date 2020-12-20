@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
-
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -49,6 +51,29 @@ public class PostController {
             return new ModelAndView("index.html",model);
         }
 
+    }
+    @RequestMapping("modify")
+    public ModelAndView modify(@RequestParam("idPost") Long idPost)
+    {
+        PostEntity post = postService.findPostbyID(idPost);
+        ModelMap model = new ModelMap();
+        model.put("post",post);
+        return new ModelAndView("modify.html",model);
+    }
+    @RequestMapping(value = "update",method = RequestMethod.POST)
+    public ModelAndView update(@RequestParam("idPost") Long idPost, @RequestParam("title")String title,
+                               @RequestParam("content") String content)
+                              // @RequestParam("file") MultipartFile file)
+    {
+        Calendar calendar = Calendar.getInstance();
+        Date date = calendar.getTime();
+        PostEntity post = new PostEntity();
+        post.setId(idPost);
+        post.setTitle(title);
+        post.setContent(content);
+        post.setCreationDate(date);
+        postService.updatePost(post);
+        return new ModelAndView("redirect:/home");
     }
 
 
