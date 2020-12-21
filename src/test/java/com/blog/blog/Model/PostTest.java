@@ -57,5 +57,22 @@ PostRepository postRepository;
         PostEntity postFinded = list.get(0);
         assertEquals(post.getTitle(),postFinded.getTitle());
     }
+    @Test
+    public void searchPostNotExists()
+    {
+        PostEntity post = new PostEntity();
+        post.setId(1L);
+        post.setImage("hola.jpg");
+        post.setTitle("hola");
+        post.setContent("hola como estas");
+        post.setCategory("categoria");
+        post.setDeleted(false);
+        Calendar calendar = Calendar.getInstance();
+        Date date = calendar.getTime();
+        post.setCreationDate(date);
+        postRepository.save(post);
+        List<PostEntity> list =postRepository.findByTitleContaining("chau");
+        assertTrue(list.isEmpty());
+    }
 
 }
