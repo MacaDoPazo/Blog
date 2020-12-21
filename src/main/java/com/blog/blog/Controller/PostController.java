@@ -57,7 +57,7 @@ public class PostController {
         }
 
     }
-    @RequestMapping(value = "details", method = RequestMethod.GET)
+    @RequestMapping(value = "details", method = RequestMethod.POST)
     public ModelAndView details (@RequestParam("idPost") Long idPost)
     {
        try {

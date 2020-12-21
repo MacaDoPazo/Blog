@@ -32,7 +32,10 @@
             </thead>
             <tbody>
             <tr th:each= "post: ${listPost}">
-                <td><a th:href="@{/details(idPost=${post.id})}" th:text="${post.id}"></a> </td>
+                <td><form action="/details" method="post">
+                    <input type="hidden" name="idPost" th:value="${post.id}">
+                    <input type="submit" class="btn btn-default" th:value="${post.id}">
+                </form> </td>
                 <td th:text="${post.title}"/>
                 <td th:text="${post.creationDate}"/>
                 <td th:text="${post.category}"/>
