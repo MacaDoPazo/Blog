@@ -12,6 +12,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 @RunWith(SpringRunner.class)
@@ -37,6 +38,24 @@ PostRepository postRepository;
 
         assertEquals(post.getId(),verifyPost.getId());
 
+    }
+    @Test
+    public void searchPostExists()
+    {
+        PostEntity post = new PostEntity();
+        post.setId(1L);
+        post.setImage("hola.jpg");
+        post.setTitle("hola");
+        post.setContent("hola como estas");
+        post.setCategory("categoria");
+        post.setDeleted(false);
+        Calendar calendar = Calendar.getInstance();
+        Date date = calendar.getTime();
+        post.setCreationDate(date);
+        postRepository.save(post);
+        List<PostEntity> list =postRepository.findByTitleContaining("hola");
+        PostEntity postFinded = list.get(0);
+        assertEquals(post.getTitle(),postFinded.getTitle());
     }
 
 }
