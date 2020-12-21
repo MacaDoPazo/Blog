@@ -10,7 +10,7 @@ public interface PostService {
     List<PostEntity> listAllPosts();
 
     List<PostEntity> findPost(String place) throws Exception;
-    PostEntity findPostbyID(Long idPost);
+    PostEntity findPostbyID(Long idPost) throws Exception;
     void updatePost(PostEntity post);
     void deletePost(Long idPost);
 

@@ -36,8 +36,8 @@
                 <td th:text="${post.title}"/>
                 <td th:text="${post.creationDate}"/>
                 <td th:text="${post.category}"/>
-                <td th:text="${post.image}"/>
-                <td><a th:href="@{/modify(idPost=${post.id})}" class="btn btn-dark">Modificar</a> </td>
+                <td><img th:src="@{/img/{image}(image=${post.image})}" height="42" width="42"></td>
+                <td><a th:href="@{/modify(idPost=${post.id})}"   class="btn btn-dark">Modificar</a> </td>
                 <td><a th:href="@{/delete(idPost=${post.id})}" class="btn btn-danger">Borrar</a> </td>
             </tr>
             </tbody>

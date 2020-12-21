@@ -45,8 +45,15 @@ public class PostServiceImpl implements PostService{
     }
 
     @Override
-    public PostEntity findPostbyID(Long idPost) {
-        return postRepository.getOne(idPost);
+    public PostEntity findPostbyID(Long idPost) throws Exception{
+        PostEntity post= postRepository.getOne(idPost);
+        if(post == null)
+        {
+            throw new Exception("El post no existe");
+        }
+        else {
+            return post;
+        }
     }
 
     @Override
