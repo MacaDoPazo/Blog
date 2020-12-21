@@ -1,0 +1,41 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:insert="header"></div>
+<head>
+    <title>Blog - detalle Post</title>
+</head>
+<body>
+
+<div class="container my-2 py-2 px-2" style="background-color: #8c8c8c">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h3>Titulo:</h3>
+            </div>
+            <div class="col">
+                <p th:text="${post.title}">
+            </div>
+            <div class="col-12">
+                <h3>Categoria:</h3>
+            </div>
+            <div class="col">
+                <p th:text="${post.category}">
+            </div>
+            <div class="col-12">
+                <h3>Imagen:</h3>
+            </div>
+            <div class="col">
+                <img th:src="@{/img/{image}(image=${post.image})}" height="42" width="42">
+            </div>
+            <div class="col-12">
+                <h3>Contenido:</h3>
+            </div>
+            <div class="col">
+                <p th:text="${post.content}">
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
