@@ -1,10 +1,15 @@
 package com.blog.blog.Model;
 
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
+
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 @Table(name = "_posts")
+@SQLDelete(sql = "UPDATE _posts SET deleted=true WHERE id = ?")
+@Where(clause = "deleted = false")
 public class PostEntity {
 
     @Id
@@ -21,6 +26,8 @@ public class PostEntity {
     private Date creationDate;
     @Column(name="content")
     private String content;
+    @Column (name="deleted")
+    private Boolean deleted;
     public Long getId() {
         return id;
     }
@@ -67,5 +74,13 @@ public class PostEntity {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public Boolean getDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(Boolean deleted) {
+        this.deleted = deleted;
     }
 }
